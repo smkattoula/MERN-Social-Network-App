@@ -48,6 +48,7 @@ router.post(
           .json({ errors: [{ msg: "Invalid Credentials" }] });
       }
 
+      // Match login password with hashed password
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
