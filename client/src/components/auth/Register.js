@@ -2,11 +2,12 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
 // import axios from "axios";
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,7 +25,7 @@ const Register = ({ setAlert }) => {
     if (password !== password2) {
       setAlert("Passwords do not match", "danger");
     } else {
-      console.log("Success!");
+      register({ name, email, password });
       //   const newUser = {
       //     name,
       //     email,
@@ -61,7 +62,6 @@ const Register = ({ setAlert }) => {
             name="name"
             value={name}
             onChange={(e) => onChange(e)}
-            required
           />
         </div>
         <div className="form-group">
@@ -71,7 +71,6 @@ const Register = ({ setAlert }) => {
             name="email"
             value={email}
             onChange={(e) => onChange(e)}
-            required
           />
           <small className="form-text">
             If you would like to use a Gravatar profile image, please use a
@@ -82,7 +81,6 @@ const Register = ({ setAlert }) => {
           <input
             type="password"
             placeholder="Password"
-            minLength="6"
             name="password"
             value={password}
             onChange={(e) => onChange(e)}
@@ -92,7 +90,6 @@ const Register = ({ setAlert }) => {
           <input
             type="password"
             placeholder="Confirm Password"
-            minLength="6"
             name="password2"
             value={password2}
             onChange={(e) => onChange(e)}
@@ -109,6 +106,7 @@ const Register = ({ setAlert }) => {
 
 Register.protoTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
