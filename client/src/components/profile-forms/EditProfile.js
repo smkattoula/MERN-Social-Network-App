@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
@@ -72,7 +72,7 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Create Your Profile</h1>
+      <h1 className="large text-primary">Edit Your Profile</h1>
       <p className="lead">
         <i className="fas fa-user"></i> Let's get some information to make your
         profile stand out!
@@ -253,5 +253,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-  withRouter(EditProfile)
+  EditProfile
 );
