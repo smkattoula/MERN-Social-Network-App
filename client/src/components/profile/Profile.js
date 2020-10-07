@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import { getProfileById } from "../../actions/profile";
+import ProfileTop from "./ProfileTop";
 import { Link } from "react-router-dom";
 
 const Profile = ({
@@ -13,7 +14,7 @@ const Profile = ({
 }) => {
   useEffect(() => {
     getProfileById(match.params.id);
-  }, [getProfileById]);
+  }, [getProfileById, match.params.id]);
 
   return (
     <Fragment>
@@ -31,6 +32,9 @@ const Profile = ({
                 Edit Profile
               </Link>
             )}
+          <div className="profile-grid my-1">
+            <ProfileTop profile={profile} />
+          </div>
         </Fragment>
       )}
     </Fragment>
