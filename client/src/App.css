@@ -152,6 +152,7 @@
 }
 .btn.btn-danger {
   background-color: #dc3545;
+  /* padding: 0.6rem 1.2rem; */
   color: #fff;
 }
 .btn.btn-danger:hover {
@@ -469,6 +470,7 @@ img {
   .post {
     grid-template-columns: 1fr;
   }
+
   .post a,
   .post button {
     padding: 0.3rem 0.4rem;
